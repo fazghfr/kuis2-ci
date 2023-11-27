@@ -33,7 +33,7 @@
 
     <div class="container">
         <h2>Film Titles at  <?php echo $bioskop['nama']; ?>:</h2>
-        <p>cinema's location :  <?php echo $bioskop['lokasi']?></p>
+        <p>cinema's location :  <?php echo $bioskop['lokasi']?> </p>
         <table class="table">
             <thead>
                 <tr>
@@ -48,6 +48,13 @@
                         <td><?php echo $filmdata['id']; ?></td>
                         <td><?php echo $filmdata['title']; ?></td>
                         <td><?php echo $filmdata['description']; ?></td>
+                        <td>
+                            <!--  -->
+                            <form action="<?= site_url('/buy/' . $filmdata['id']); ?>" method="get">
+                                <input type="hidden" name="bioskopid" value="<?= $bioskop['id']; ?>">
+                                <button type="submit" class="btn btn-primary">Pesan</button>
+                            </form>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
