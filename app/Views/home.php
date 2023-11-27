@@ -31,17 +31,41 @@
         </div>
     </nav>
 
-    
     <div class="text-center">
-        <h1 class="text-center">Selamat Datang di eCinema</h1> <!-- Added text-center class -->
+        <h1 class="text-center">Sedang Tayang</h1> <!-- Added text-center class -->
     </div>
+
+    <!-- Add Carousel -->
+    <div id="filmCarousel" class="carousel slide center-text" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <?php foreach ($film as $key => $item): ?>
+                <li data-target="#filmCarousel" data-slide-to="<?= $key ?>" <?= $key === 0 ? 'class="active"' : '' ?>></li>
+            <?php endforeach; ?>
+        </ol>
+        <div class="carousel-inner">
+            <?php foreach ($film as $key => $item): ?>
+                <div class="carousel-item <?= $key === 0 ? 'active' : '' ?> text-center">
+                    <img src="<?= $item['picture_url'] ?>" class="d-block mx-auto" style="max-height: 250px; width: auto;" alt="<?= $item['title'] ?>">
+                </div>
+            <?php endforeach; ?>
+        </div>
+        <a class="carousel-control-prev" href="#filmCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#filmCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
     <div class="container mt-4">
         <?php if (!empty($bioskop['id'])): ?>
             <form id="bioskopForm" method="get">
         <?php else: ?>
             <form id="bioskopForm" method="get">
         <?php endif; ?>
-            <div class="dropdown">
+            <div class="dropdown text-center">
                 <select class="form-control" id="selectBioskop">
                     <option value="">Select Bioskop</option>
                     <?php foreach ($bioskop as $row): ?>
@@ -49,9 +73,13 @@
                     <?php endforeach; ?>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary mt-2">Submit</button>
+            </div>
         </form>
     </div>
+
+
 
     <script>
         document.getElementById('selectBioskop').addEventListener('change', function() {

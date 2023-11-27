@@ -21,9 +21,13 @@ class About extends BaseController
     public function getSpesific($id)
     {
         $modelBioskop = new \App\Models\Bioskop;
+        $countFilm = new \App\Models\Film;
+
+        $film = $countFilm->where('bioskop_id', $id)->countAllResults();
         $data = [
             'title' => 'Specific Bioskop',
-            'bioskop' => $modelBioskop->find($id)
+            'bioskop' => $modelBioskop->find($id),
+            'jumlah_film' => $film
         ];
 
         return view('about_spesific', $data);

@@ -46,10 +46,7 @@
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-4 text-center">
                         <h2>Total Film</h2>
-                        <p class="lead"></p>
-                    </div>
-                    <div class="col-lg-4 text-center">
-                        <h2>Capacity</h2>
+                        <p class="lead">Currently Active Showing <strong><?php echo $jumlah_film?></strong> movies.</p>
                         <p class="lead"></p>
                     </div>
                     <div class="col-lg-4 text-center">
