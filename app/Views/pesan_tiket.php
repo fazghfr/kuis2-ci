@@ -43,10 +43,11 @@
                 <p><?php echo $film[0]['description']; ?></p>
                 
                 <!-- TODO : action /submit -->
-                <form action="<?= site_url('/pesan/' . $film[0]['id']); ?>" method="get">
-                <input type="hidden" name="bioskopid" value="<?= $idbioskop; ?>">
+                <form action="<?= site_url('/pesan/'); ?>" method="get">
+                    <input type="hidden" name="bioskopid" value="<?= $idbioskop; ?>">
+                    <input type="hidden" name="filmid" value="<?= $film[0]['id']; ?>">
                     <div class="form-group">
-                        <select class="form-control" name="selectedOption">
+                        <select class="form-control" name="jadwalid">
                             <option value="" selected disabled>Pilih jadwal</option>
                             <?php foreach ($jadwal as $data) { ?>
                                 <?php if ($data['film_id'] === $film[0]['id']) { ?>

@@ -31,43 +31,35 @@
             </div>
         </nav>
 
-        <div class="d-flex align-items-center justify-content-center" style="min-height: 50vh;">
-            <div>
-                <h1 class="text-center mt-4">Our Facilities</h1>
-                <br>
-                <div class="container mt-4">
-                    <?php if (!empty($bioskop['id'])): ?>
-                        <form id="bioskopForm" method="get">
-                    <?php else: ?>
-                        <form id="bioskopForm" method="get">
-                    <?php endif; ?>
-                        <div class="dropdown" style="padding: 0 10rem;">
-                            <select class="form-control" id="selectBioskop">
-                                <option value="">Select Cinema First</option>
-                                <?php foreach ($bioskop as $row): ?>
-                                    <option value="<?= esc($row['id']) ?>"><?= esc($row['nama']) ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-
-                        <br>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary mt-2">Submit</button>
-                        </div>
-                    </form>
+        <header class="bg-dark text-white">
+            <div class="container px-4 text-center">
+                <br><br>
+                <h1 class="fw-bolder"><?php echo $bioskop['nama']?></h1>
+                <p class="lead">Providing Your Entertainment</p>
+                <br><br><br>
+            </div>
+        </header>
+        <!-- About section-->
+        <br>
+        <section id="about">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-4 text-center">
+                        <h2>Total Film</h2>
+                        <p class="lead"></p>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <h2>Capacity</h2>
+                        <p class="lead"></p>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <h2>Location</h2>
+                        <p class="lead">You can visit this theatre at <strong><?php echo $bioskop['lokasi']?></strong>. You
+                                        can also reserve your seat through our website</p>
+                    </div>
                 </div>
             </div>
-        </div>
-
-
-        <script>
-            document.getElementById('selectBioskop').addEventListener('change', function() {
-                var selectedBioskop = this.value;
-                var form = document.getElementById('bioskopForm');
-                form.action = '/about/' + selectedBioskop;
-                form.removeAttribute('name'); // Remove the 'name' attribute from the select element
-            });
-        </script>
+        </section>
 
         <!-- Add Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

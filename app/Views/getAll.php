@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title><?php echo $bioskop['nama']; ?>'s Movie List</title>
     <!-- Add Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -32,24 +32,24 @@
     </nav>
 
     <div class="container">
-        <h2>Film Titles at  <?php echo $bioskop['nama']; ?>:</h2>
+        <h2>Now Showing at  <?php echo $bioskop['nama']; ?>:</h2>
         <p>cinema's location :  <?php echo $bioskop['lokasi']?> </p>
+        <br>
         <table class="table">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th class ="text-center">Poster</th>
                     <th>title</th>
-                    <th>description</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($film as $filmdata): ?>
                     <tr>
-                        <td><?php echo $filmdata['id']; ?></td>
-                        <td><?php echo $filmdata['title']; ?></td>
-                        <td><?php echo $filmdata['description']; ?></td>
+                        <td class="text-center">
+                            <img src="<?php echo $filmdata['picture_url']; ?>" alt="<?php echo $filmdata['title']; ?>" style="width: auto; height: 150px;">
+                        </td>
+                        <td><?php echo $filmdata['title']; ?><br><br>Rating<br><?php echo $filmdata['rating']; ?>/10</td>
                         <td>
-                            <!--  -->
                             <form action="<?= site_url('/buy/' . $filmdata['id']); ?>" method="get">
                                 <input type="hidden" name="bioskopid" value="<?= $bioskop['id']; ?>">
                                 <button type="submit" class="btn btn-primary">Pesan</button>
