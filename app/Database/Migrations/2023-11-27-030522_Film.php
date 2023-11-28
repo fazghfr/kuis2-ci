@@ -13,6 +13,7 @@ class Migration_Film extends Migration
             'title'       => ['type' => 'VARCHAR', 'constraint' => 255],
             'description' => ['type' => 'TEXT'],
             'rating'      => ['type' => 'FLOAT'],
+            'picture_url' =>	['type' => 'VARCHAR', 'constraint' => 1024],
             'bioskop_id'  => ['type' => 'INT', 'constraint' => 5, 'unsigned' => true],
         ]);
 
