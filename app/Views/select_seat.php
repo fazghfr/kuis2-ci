@@ -40,7 +40,7 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="seat-selection">
-                    <form method="post" action="/test">
+                    <form method="post" action="/pay">
                     <input type="hidden" name="bioskopid" value="<?= $bioskop['id']; ?>">
                     <input type="hidden" name="filmid" value="<?= $film['id']; ?>">
                     <input type="hidden" name="jadwalid" value="<?= $jadwal['id']; ?>">

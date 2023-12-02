@@ -23,8 +23,8 @@
                     </form>
                 </li>
                 <li class="nav-item">
-                    <form method="get" action="#">
-                        <button type="submit" class="nav-link btn btn-link">Contact</button>
+                    <form method="get" action="/history">
+                        <button type="submit" class="nav-link btn btn-link">History</button>
                     </form>
                 </li>
             </ul>
